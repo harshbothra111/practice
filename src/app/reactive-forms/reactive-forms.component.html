@@ -1,0 +1,70 @@
+<form class="mt-3" [formGroup]="regForm" (ngSubmit)="onSubmit()">
+    <div class="row">
+        <div class="col-md-9 col-sm-10 mx-auto">
+            <div class="card">
+                <div class="card-header">
+                    <h3>Enter Details</h3>
+                </div>
+                <div class="card-body">
+                    <div class="row m-2">
+                        <div class="col-md-6 col-sm-12">
+                            <label class="col-form-label">First Name</label>
+                        </div>
+                        <div class="col-md-6 col-sm-12">
+                            <input type="text" name="firstName" 
+                            [ngClass]="{ 'is-invalid': isSubmited && regForm.controls['firstName'].errors?.required }"
+                            class="form-control" formControlName="firstName"/>
+                        </div>
+                    </div>
+                    <div class="row m-2">
+                        <div class="col-md-6 col-sm-12">
+                            <label class="col-form-label">Last Name</label>
+                        </div>
+                        <div class="col-md-6 col-sm-12">
+                            <input type="text" name="lastName" 
+                            [ngClass]="{ 'is-invalid': isSubmited && regForm.controls['lastName'].errors?.required }"
+                            class="form-control" formControlName="lastName"/>
+                        </div>
+                    </div>
+                    <div class="row m-2">
+                        <div class="col-md-6 col-sm-12">
+                            <label class="col-form-label">Date of Registration</label>
+                        </div>
+                        <div class="col-md-6 col-sm-12">
+                            <input type="date" name="startDate" class="form-control" 
+                            (change)="updateEndDate()"
+                            [ngClass]="{ 'is-invalid': isSubmited && regForm.controls['startDate'].errors?.required }"
+                            formControlName="startDate"/>
+                        </div>
+                    </div>
+                    <div class="row m-2">
+                        <div class="col-md-6 col-sm-12">
+                            <label class="col-form-label">Valid Upto</label>
+                        </div>
+                        <div class="col-md-6 col-sm-12">
+                            <input type="date" name="endDate" 
+                            [ngClass]="{ 'is-invalid': isSubmited && regForm.controls['endDate'].errors?.required }"
+                            class="form-control" formControlName="endDate"/>
+                        </div>
+                    </div>
+                    <div class="row m-2">
+                        <div class="col-md-6 col-sm-12 offset-md-6">
+                            <div class="row">
+                                <div class="col-md-6 col-sm-12 mx-auto mt-2">
+                                    <div class="d-grid gap-2">
+                                        <button class="btn btn-primary" type="submit">Submit</button>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-sm-12 mx-auto mt-2">
+                                    <div class="d-grid gap-2">
+                                        <button class="btn btn-danger" type="button" (click)="reset()">Reset</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
